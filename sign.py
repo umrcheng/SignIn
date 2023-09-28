@@ -19,17 +19,17 @@ def cookie_latest(i, conf):
     :param conf:
     :return:
     """
-    cookie = config.get_cookie(i)
     url = tools.Format.domain_format(conf["url"])
     for item in auth_subpaths:
         try:
-            session.cookies.update(cookie.get_cookie())
+            session.cookies.update(config.get_cookie(i))
             req = session.post(url + item, headers=headers, timeout=10)
+            print(" 登录成功 ".center(40, "="))
         except requests.exceptions.ConnectionError:
             print("更新 cookie 失败")
             return False
         if req.status_code == 200:
-            cookie.save_cookie(session.cookies)
+            config.save_cookie(i, session.cookies)
             return True
 
 

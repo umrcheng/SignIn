@@ -57,6 +57,7 @@ class Config:
         """cookie对象保存到 requests.cookies.RequestsCookieJar """
         for key in cookie:
             self.__jar.set(key, cookie[key])
+        return self.__jar
 
     def set_cookie(self, obj: dict):
         if obj["key"] is not None and obj["value"] is not None:
