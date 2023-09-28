@@ -30,11 +30,12 @@ ql repo https://github.com/umrcheng/SignIn.git "" "" "tools|config" "" "py|json"
 
 ### 填写配置文件字段
 
-- url: 代理商的域名
-- sign_in_type: 登录的类型有两种 `password` `cookie`
-- username, password: sign_in_type选择 password 时需要填写账户密码
-- cookies: sign_in_type选择 cookie 时需要填写代理商页面获取到的 cookie
-- 多用户就把这个对象配置项复制一份填到 sign 数组里
+- **url**: 代理商的域名
+- **sign_in_type**: 登录的类型有两种 `password` `cookie`
+- **username**, **password**: `sign_in_type`选择 `password` 时需要填写账户密码
+- **cookies**: `sign_in_type`选择 `cookie` 时需要填写代理商页面获取到的 `cookie`
+- 多用户就把这个对象配置项复制一份填到 sign 数组里, 要注意添加 `,` 号
+
 ```json
 "sign": [
   {
